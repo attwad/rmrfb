@@ -31,6 +31,10 @@ let list = function(urlPath, del) {
 				});
 		  });
 		}
+		  if (!response.paging || !response.paging.next) {
+			  console.log("done");
+			  return;
+		  }
 		let next = url.parse(response.paging.next, true);
 		list(next.path, del);
 	  }
